@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathIsFun.CSharp", "MathIsFun.CSharp.csproj", "{CBCB5A97-E97F-DF4E-E36A-9C5257752FFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathIsFun.CSharp.Editor", "MathIsFun.CSharp.Editor.csproj", "{10665060-D4E0-80A0-3369-E5149C6A4F1E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CBCB5A97-E97F-DF4E-E36A-9C5257752FFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBCB5A97-E97F-DF4E-E36A-9C5257752FFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBCB5A97-E97F-DF4E-E36A-9C5257752FFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBCB5A97-E97F-DF4E-E36A-9C5257752FFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10665060-D4E0-80A0-3369-E5149C6A4F1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10665060-D4E0-80A0-3369-E5149C6A4F1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10665060-D4E0-80A0-3369-E5149C6A4F1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10665060-D4E0-80A0-3369-E5149C6A4F1E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
