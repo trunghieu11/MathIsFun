@@ -152,10 +152,14 @@ namespace AppAdvisory.MathGame
 			while (true) 
 			{
 
+                // Make game faster here
 				float timer = 0.01f + ((float)Mathf.Sqrt(level)) / 100f;
+
+                timer = Math.Min(0.1f, timer * 3);
 
 				slider.value -= timer;
 
+                //Debug.Log("Timer: " + timer);
 
 				//if the slider == 0 ===> game over
 				if (slider.value == 0) 
