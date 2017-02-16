@@ -15,7 +15,7 @@ using System;
 using System.Collections;
 using UnityEngine.UI;
 
-namespace AppAdvisory.MathGame
+namespace AppAdvisory.MathFrenzy
 {
 	public class RateUsManager : MonoBehaviour 
 	{

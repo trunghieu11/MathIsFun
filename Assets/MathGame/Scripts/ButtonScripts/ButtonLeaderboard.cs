@@ -16,7 +16,7 @@ using System.Collections;
 using AppAdvisory.social;
 #endif
 
-namespace AppAdvisory.MathGame
+namespace AppAdvisory.MathFrenzy
 {
 	public class ButtonLeaderboard : ButtonHelper 
 	{

@@ -13,7 +13,7 @@
 using UnityEngine;
 using System.Collections;
 
-namespace AppAdvisory.MathGame
+namespace AppAdvisory.MathFrenzy
 {
 	public class ButtonCloseSetting : ButtonHelper 
 	{

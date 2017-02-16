@@ -17,7 +17,7 @@ using DG.Tweening;
 
 #endif
 
-namespace AppAdvisory.MathGame
+namespace AppAdvisory.MathFrenzy
 {
 	public class AnimTitle : MonoBehaviour
 	{

@@ -13,7 +13,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-namespace AppAdvisory.MathGame
+namespace AppAdvisory.MathFrenzy
 {
 	public class SliderFillArea : MonoBehaviour
 	{

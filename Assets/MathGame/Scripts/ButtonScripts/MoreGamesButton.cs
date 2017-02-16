@@ -17,7 +17,7 @@ using System.Collections;
 using AppAdvisory.Ads;
 #endif
 
-namespace AppAdvisory.MathGame
+namespace AppAdvisory.MathFrenzy
 {
 	public class MoreGamesButton : ButtonHelper 
 	{

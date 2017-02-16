@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace AppAdvisory.MathGame
+namespace AppAdvisory.MathFrenzy
 {
 	public class OpenMoreGames : MonoBehaviour 
 	{

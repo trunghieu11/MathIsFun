@@ -16,6 +16,7 @@ using System;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
+using AppAdvisory.MathFrenzy;
 
 namespace MenuBarouch
 {
@@ -74,10 +75,17 @@ namespace MenuBarouch
 		void Update()
 		{
 			BACKGROUND_BACK.color = Color.Lerp(BACKGROUND_BACK.color, NORMAL_COLOR,Time.time);
-		}
 
-		//animation scale from 1 to 0
-		public void GoOut(GameObject obj, float time, float delay)
+#if UNITY_ANDROID
+            if (Input.GetKey(KeyCode.Escape)) {
+                Debug.Log("Game closed!!");
+                Application.Quit();
+            }
+#endif
+        }
+
+        //animation scale from 1 to 0
+        public void GoOut(GameObject obj, float time, float delay)
 		{
 			obj.transform.localScale = Vector3.one;
 			StartCoroutine (GoInOrOutCorout (obj, 0, time, delay, () => {

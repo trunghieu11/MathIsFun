@@ -26,7 +26,7 @@ using System.IO;
 using System.Text.RegularExpressions;
 using System;
 
-namespace AppAdvisory.MathGame
+namespace AppAdvisory.MathFrenzy
 {
 	[InitializeOnLoad]
 	public class DGChecker : EditorWindow 
