@@ -605,7 +605,7 @@ namespace AppAdvisory.MathFrenzy {
 #if APPADVISORY_LEADERBOARD
 			LeaderboardManager.ReportScore(p);
 #else
-            print("Get very simple leaderboard to use it : http://u3d.as/qxf");
+            //print("Get very simple leaderboard to use it : http://u3d.as/qxf");
 #endif
         }
 
