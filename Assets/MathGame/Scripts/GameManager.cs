@@ -26,6 +26,16 @@ using AppAdvisory.Ads;
 
 namespace AppAdvisory.MathFrenzy {
     public class GameManager : MonoBehaviour {
+
+        private enum Operator {
+            plus = 0,
+            substract = 1,
+            multi = 2,
+            devide = 3
+        }
+
+        private Operator[] randomOperator = new Operator[] { Operator.plus, Operator.substract, Operator.multi, Operator.devide};
+
         public int numberOfPlayToShowInterstitial = 5;
 
         public string VerySimpleAdsURL = "http://u3d.as/oWD";
@@ -67,7 +77,7 @@ namespace AppAdvisory.MathFrenzy {
 
         public int _score;
 
-        public int GOODANSWER; //count the number of good answer, ie. the score
+        public int correctAnswer; //count the number of good answer, ie. the score
 
         public Slider slider; //the slider in the top of the game screen
 
@@ -78,7 +88,7 @@ namespace AppAdvisory.MathFrenzy {
         int _result = 0;
         int _number1 = 0;
         int _number2 = 0;
-        int _operateur = 0;
+        Operator _choseOperateur = 0;
 
         public delegate void _GameOver();
         public static event _GameOver OnGameOver;
@@ -179,20 +189,12 @@ namespace AppAdvisory.MathFrenzy {
 
         //choose operateur for the question : + = 0    - = 1     * = 2      / = 3
         void ChooseOperator() {
-            int operateur = 0;
+            Operator choseOperator = randomOperator[UnityEngine.Random.Range(0, 4)];
 
-            if (level == 1) {
-                operateur = UnityEngine.Random.Range(0, 2);
-            } else if (level <= 3) {
-                operateur = UnityEngine.Random.Range(0, 3);
-            } else {
-                operateur = UnityEngine.Random.Range(0, 4);
-            }
-
-            CreateQuestion(operateur);
+            CreateQuestion(choseOperator);
         }
 
-        void CreateQuestion(int operateur) {
+        void CreateQuestion(Operator choseOperator) {
 
             int result = 0;
             int number1 = 0;
@@ -203,34 +205,32 @@ namespace AppAdvisory.MathFrenzy {
             while (true) {
                 essai++;
 
+                // check this math is avaiable
                 bool isOK = true;
 
-                if (operateur == 3) {
-                    int mult = UnityEngine.Random.Range(2 + (int)Mathf.Log(level), 2 + 2 * (int)Mathf.Log(level));
-
+                // choose number
+                if (choseOperator == Operator.devide) {
+                    int mult = UnityEngine.Random.Range(2 + level, 2 + 2 * level);
                     number2 = UnityEngine.Random.Range(2 + level / 2, 3 + level);
 
                     number1 = mult * number2;
-                } else if (operateur == 1) {
-                    number2 = UnityEngine.Random.Range(1 + (int)Mathf.Log(level) / 2, 5 + (int)Mathf.Log(level));
-
-                    number1 = UnityEngine.Random.Range(number2 + (int)Mathf.Log(level) / 2, number2 + 5 + 2 * (int)Mathf.Log(level));
-
+                } else if (choseOperator == Operator.substract) {
+                    number2 = UnityEngine.Random.Range(1 + level / 2, 5 + level);
+                    number1 = UnityEngine.Random.Range(number2 + level / 2, number2 + 5 + 2 * level);
                 } else {
-                    number1 = UnityEngine.Random.Range(1 + (int)Mathf.Log(level) / 2, 5 + 2 * (int)Mathf.Log(level));
-                    number2 = UnityEngine.Random.Range(1 + (int)Mathf.Log(level) / 2, 5 + 2 * (int)Mathf.Log(level));
+                    number1 = UnityEngine.Random.Range(1 + level / 2, 5 + 2 * level);
+                    number2 = UnityEngine.Random.Range(1 + level / 2, 5 + 2 * level);
                 }
 
-                result = GetResult(number1, number2, operateur);
+                // get game result
+                result = GetResult(number1, number2, choseOperator);
 
-                if (operateur == 1 || operateur == 3) {
-
+                // check if this game have only one result
+                if (choseOperator == Operator.substract || choseOperator == Operator.devide) {
                     int resultDIV = 0;
-
                     int resultMINUS = 0;
 
                     resultDIV = number1 / number2;
-
                     resultMINUS = number1 - number2;
 
                     if (resultDIV == resultMINUS) {
@@ -238,15 +238,12 @@ namespace AppAdvisory.MathFrenzy {
                     }
 
                 }
-
-
-                if (operateur == 0 || operateur == 2) {
+                
+                if (choseOperator == Operator.plus || choseOperator == Operator.multi) {
                     int resultMULT = 0;
-
                     int resultPLUS = 0;
 
                     resultMULT = number1 * number2;
-
                     resultPLUS = number1 + number2;
 
                     if (resultMULT == resultPLUS) {
@@ -254,7 +251,8 @@ namespace AppAdvisory.MathFrenzy {
                     }
                 }
 
-                if (_result == result && _number1 == number1 && _number2 == number2 && _operateur == operateur) {
+                // check this level not same previous level
+                if (_result == result && _number1 == number1 && _number2 == number2 && _choseOperateur == choseOperator) {
                     isOK = false;
                 }
 
@@ -262,8 +260,8 @@ namespace AppAdvisory.MathFrenzy {
                     isOK = false;
                 }
 
-
-                if (operateur == 3) {
+                // check operator devide is correct
+                if (choseOperator == Operator.devide) {
                     if (number1 % number2 != 0) {
                         isOK = false;
                     }
@@ -276,60 +274,43 @@ namespace AppAdvisory.MathFrenzy {
                         isOK = false;
                     }
                 } else {
-                    if (operateur == 2) {
+                    if (choseOperator == Operator.devide) {
                         if (number1 == 0 || number1 == 1 || number2 == 0 || number2 == 1 || result == 0 || result == 1) {
                             isOK = false;
                         }
                     }
                 }
 
-                if (level <= 2) {
-                    if (result > 9) {
-                        isOK = false;
-                    }
-                    if (result <= 0 || number1 <= 0 || number2 <= 0) {
-                        isOK = false;
-                    }
-                } else if (level <= 4) {
-                    if (result > 50) {
-                        isOK = false;
-                    }
-                    if (result <= 0 || number1 <= 0 || number2 <= 0) {
-                        isOK = false;
-                    }
-                } else if (level <= 6) {
-                    if (result > 99) {
-                        isOK = false;
-                    }
+                if (result <= 0 || number1 <= 0 || number2 <= 0) {
+                    isOK = false;
                 }
-
-
+                
                 if (result > 99) {
                     isOK = false;
                 }
 
 
-                //CHECK!!!
+                //Check again!!!
                 if (isOK) {
-                    if (operateur == 0) {
+                    if (choseOperator == Operator.plus) {
                         int resultTest = number1 + number2;
                         if (resultTest != result) {
                             isOK = false;
                         }
                     }
-                    if (operateur == 1) {
+                    if (choseOperator == Operator.substract) {
                         int resultTest = number1 - number2;
                         if (resultTest != result) {
                             isOK = false;
                         }
                     }
-                    if (operateur == 2) {
+                    if (choseOperator == Operator.multi) {
                         int resultTest = number1 * number2;
                         if (resultTest != result) {
                             isOK = false;
                         }
                     }
-                    if (operateur == 4) {
+                    if (choseOperator == Operator.devide) {
                         int resultTest = number1 / number2;
                         if (resultTest != result) {
                             isOK = false;
@@ -343,18 +324,17 @@ namespace AppAdvisory.MathFrenzy {
                     _result = result;
                     _number1 = number1;
                     _number2 = number2;
-                    _operateur = operateur;
+                    _choseOperateur = choseOperator;
 
                     break;
                 }
             }
 
-            SetText(number1, number2, operateur, result);
-
+            SetText(number1, number2, choseOperator, result);
         }
 
         //set the question text
-        private void SetText(int n1, int n2, int oper, int result) {
+        private void SetText(int n1, int n2, Operator oper, int result) {
             int TYPE_QUESTION = UnityEngine.Random.Range(0, 4);
 
             if (TYPE_QUESTION == 0) {
@@ -366,7 +346,7 @@ namespace AppAdvisory.MathFrenzy {
 
                 questionResult.text = result.ToString();
 
-                GOODANSWER = n1;
+                correctAnswer = n1;
             }
 
             if (TYPE_QUESTION == 1) {
@@ -377,8 +357,8 @@ namespace AppAdvisory.MathFrenzy {
                 questionOperator.text = "?";
 
                 questionResult.text = result.ToString();
-
-                GOODANSWER = oper;
+                
+                correctAnswer = (int)oper;
             }
 
             if (TYPE_QUESTION == 2) {
@@ -390,7 +370,7 @@ namespace AppAdvisory.MathFrenzy {
 
                 questionResult.text = result.ToString();
 
-                GOODANSWER = n2;
+                correctAnswer = n2;
             }
 
             if (TYPE_QUESTION == 3) {
@@ -402,7 +382,7 @@ namespace AppAdvisory.MathFrenzy {
 
                 questionResult.text = "?";
 
-                GOODANSWER = result;
+                correctAnswer = result;
             }
 
             questionNumber1.transform.parent.FindChild("Selected").gameObject.SetActive(TYPE_QUESTION == 0);
@@ -410,13 +390,13 @@ namespace AppAdvisory.MathFrenzy {
             questionNumber2.transform.parent.FindChild("Selected").gameObject.SetActive(TYPE_QUESTION == 2);
             questionResult.transform.parent.FindChild("Selected").gameObject.SetActive(TYPE_QUESTION == 3);
 
-
+            // generate 4 answer
             if (TYPE_QUESTION != 1) {
                 int[] answers = new int[4];
 
-                List<int> l = new List<int>();
+                List<int> listAnswers = new List<int>();
 
-                l.Add(GOODANSWER);
+                listAnswers.Add(correctAnswer);
 
                 while (true) {
                     int ans = 0;
@@ -426,27 +406,31 @@ namespace AppAdvisory.MathFrenzy {
                     while (true) {
                         bool isOk = true;
 
-                        ans = UnityEngine.Random.Range(1, GOODANSWER * 2 + 3);
+                        ans = UnityEngine.Random.Range(1, correctAnswer * 2 + 3);
 
-                        if (ans <= 0)
+                        if (ans <= 0) {
                             isOk = false;
+                        }
 
-                        if (isOk)
+                        if (isOk) {
                             break;
+                        }
 
                         addRange++;
                     }
 
-                    if (!l.Contains(ans))
-                        l.Add(ans);
+                    if (!listAnswers.Contains(ans)) {
+                        listAnswers.Add(ans);
+                    }
 
-                    if (l.Count == 4)
+                    if (listAnswers.Count == 4) {
                         break;
+                    }
                 }
 
-                l.Sort();
+                listAnswers.Sort();
 
-                answers = l.ToArray();
+                answers = listAnswers.ToArray();
 
                 Array.Sort(answers);
 
@@ -481,7 +465,7 @@ namespace AppAdvisory.MathFrenzy {
             else
                 myAnswer = int.Parse(text.text);
 
-            if (GOODANSWER == myAnswer) {
+            if (correctAnswer == myAnswer) {
                 _score++;
 
                 if (_score % 5 == 0) {
@@ -491,7 +475,7 @@ namespace AppAdvisory.MathFrenzy {
 
                 pointsText.text = _score.ToString();
 
-                StartCoroutine(GoodAnswerAnim());
+                StartCoroutine(CorrectAnswerAnim());
 
                 slider.value += timeTotalGame;
 
@@ -510,35 +494,37 @@ namespace AppAdvisory.MathFrenzy {
         }
 
 
-        private int GetResult(int n1, int n2, int oper) {
-            if (oper == 0)
-                return n1 + n2;
-            else if (oper == 1)
-                return n1 - n2;
-
-            else if (oper == 2)
-                return n1 * n2;
-
-            else if (oper == 3)
-                return n1 / n2;
-            else
-                return 0;
+        private int GetResult(int n1, int n2, Operator oper) {
+            switch(oper) {
+                case Operator.plus:
+                    return n1 + n2;
+                case Operator.substract:
+                    return n1 - n2;
+                case Operator.multi:
+                    return n1 * n2;
+                case Operator.devide:
+                    return n1 / n2;
+                default:
+                    return 0;
+            }
         }
 
-        private string GetOperator(int oper) {
-            if (oper == 0)
-                return "+";
-            else if (oper == 1)
-                return "-";
-            else if (oper == 2)
-                return "x";
-            else if (oper == 3)
-                return "÷";
-            else
-                return "";
+        private string GetOperator(Operator oper) {
+            switch (oper) {
+                case Operator.plus:
+                    return "+";
+                case Operator.substract:
+                    return "-";
+                case Operator.multi:
+                    return "x";
+                case Operator.devide:
+                    return "÷";
+                default:
+                    return "";
+            }
         }
 
-        IEnumerator GoodAnswerAnim() {
+        IEnumerator CorrectAnswerAnim() {
             float time = 0.2f;
 
             QUESTIONS_GO.GetComponent<Animator>().Play("AnimQuestionChange");
