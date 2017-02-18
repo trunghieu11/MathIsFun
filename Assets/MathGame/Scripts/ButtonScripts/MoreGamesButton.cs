@@ -19,18 +19,13 @@ using AppAdvisory.Ads;
 
 namespace AppAdvisory.MathFrenzy
 {
-	public class MoreGamesButton : ButtonHelper 
-	{
-		string URL = "http://app-advisory.com";
+	public class MoreGamesButton : ButtonHelper {
+
+        public string pageURL;
 
 		override public void OnClicked()
 		{
-			print ("OnClicked : " + gameObject.name);
-			#if APPADVISORY_ADS
-			AdsManager.instance.ShowRewardedVideo ((bool success) => {
-			print("add your own code here if you want to offer something to the player");
-			});
-			#endif
-		}
+            Application.OpenURL(pageURL);
+        }
 	}
 }
