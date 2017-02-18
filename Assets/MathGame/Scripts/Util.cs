@@ -19,7 +19,18 @@ namespace AppAdvisory.MathFrenzy
 {
 	public static class Util
 	{
-		private static System.Random Random = new System.Random();
+        public static string FIRST_PLAY_PREF = "_FirstPlay";
+        public static string TOTAL_DIAMOND_PREF = "_TotalDiamond";
+        public static string ARRAY_COLOR_SAVED_PREF = "_arrayColorSaved";
+        public static string GAMEOVER_COUNT_PREF = "GAMEOVER_COUNT";
+        public static string LAST_SCORE_PREF = "LAST_SCORE";
+        public static string BEST_SCORE_PREF = "BEST_SCORE";
+        public static string RESTART_FROM_GAMEOVER_PREF = "_RestartFromGameOver";
+        public static string MUTED_PREF = "Muted";
+        public static string LEADERBOARD_ID_PREF = "__LEADERBOARDID";
+        public static string LAST_GET_DIAMOND_PREF = "_LastGetDiamond";
+
+        private static System.Random Random = new System.Random();
 
 		public static float RandomValue()
 		{

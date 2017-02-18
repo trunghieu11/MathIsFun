@@ -35,6 +35,18 @@ namespace MenuBarouch {
             MENU.SetActive(true);
             GAME.SetActive(false);
             SETTING.SetActive(false);
+            SetSoundState();
+        }
+
+        /// <summary>
+        /// Set sound state
+        /// </summary>
+        public void SetSoundState() {
+            if (!PlayerPrefsX.GetBool(Util.MUTED_PREF)) {
+                AudioListener.volume = 1;
+            } else {
+                AudioListener.volume = 0;
+            }
         }
 
         //open the game

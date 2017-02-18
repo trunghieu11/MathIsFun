@@ -56,6 +56,7 @@
      <Compile Include="Assets\MathGame\Scripts\ButtonScripts\ButtonFacebook.cs" />
      <Compile Include="Assets\MathGame\Scripts\ButtonScripts\ButtonHelper.cs" />
      <Compile Include="Assets\MathGame\Scripts\ButtonScripts\ButtonLeaderboard.cs" />
+     <Compile Include="Assets\MathGame\Scripts\ButtonScripts\ButtonMute.cs" />
      <Compile Include="Assets\MathGame\Scripts\ButtonScripts\ButtonSetting.cs" />
      <Compile Include="Assets\MathGame\Scripts\ButtonScripts\ButtonShare.cs" />
      <Compile Include="Assets\MathGame\Scripts\ButtonScripts\MoreGamesButton.cs" />
@@ -66,6 +67,7 @@
      <Compile Include="Assets\MathGame\Scripts\MenuGameOver.cs" />
      <Compile Include="Assets\MathGame\Scripts\MenuLogic.cs" />
      <Compile Include="Assets\MathGame\Scripts\MenuManager.cs" />
+     <Compile Include="Assets\MathGame\Scripts\PlayerPrefsX.cs" />
      <Compile Include="Assets\MathGame\Scripts\RateUsManager.cs" />
      <Compile Include="Assets\MathGame\Scripts\ScoreManager.cs" />
      <Compile Include="Assets\MathGame\Scripts\SliderFillArea.cs" />
