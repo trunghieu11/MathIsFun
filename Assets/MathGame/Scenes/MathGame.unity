@@ -1490,9 +1490,35 @@ Prefab:
       propertyPath: m_AnchoredPosition.y
       value: 41
       objectReference: {fileID: 0}
+    - target: {fileID: 114836720724028856, guid: 078dbafbc14044a29be609e9b75c7b1f,
+        type: 2}
+      propertyPath: shareURL
+      value: https://play.google.com/store/apps/details?id=com.eleven.mathfrenzy
+      objectReference: {fileID: 0}
+    - target: {fileID: 114121843354302514, guid: 078dbafbc14044a29be609e9b75c7b1f,
+        type: 2}
+      propertyPath: pageURL
+      value: https://play.google.com/store/apps/details?id=com.eleven.mathfrenzy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &120184797 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1069217227590248, guid: 078dbafbc14044a29be609e9b75c7b1f,
+    type: 2}
+  m_PrefabInternal: {fileID: 120184796}
+--- !u!114 &120184798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 120184797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f2cc558e229d48f4ab1453d6334ee1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &170335251
 GameObject:
   m_ObjectHideFlags: 0
@@ -2100,6 +2126,47 @@ Camera:
   m_PrefabParentObject: {fileID: 2058120, guid: d372da3c26d084cd6b62e006accaf833,
     type: 2}
   m_PrefabInternal: {fileID: 635555167}
+--- !u!1 &1364411952
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1364411954}
+  - component: {fileID: 1364411953}
+  m_Layer: 0
+  m_Name: LeaderboardInit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1364411953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1364411952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3524af4d2ac774cb69bb06a43894b35c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leaderboardIds: {fileID: 11400000, guid: c60977378d6ee4e9d9dd3bdb5b922e9a, type: 2}
+--- !u!4 &1364411954
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1364411952}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1438644586
 GameObject:
   m_ObjectHideFlags: 0

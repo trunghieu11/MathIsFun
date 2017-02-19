@@ -17,10 +17,10 @@ namespace AppAdvisory.MathFrenzy
 {
 	public class RateUsButton : ButtonHelper 
 	{
-		override public void OnClicked()
-		{
-			print ("OnClicked : " + gameObject.name);
+        public string pageURL;
 
-		}
-	}
+        override public void OnClicked() {
+            Application.OpenURL(pageURL);
+        }
+    }
 }
