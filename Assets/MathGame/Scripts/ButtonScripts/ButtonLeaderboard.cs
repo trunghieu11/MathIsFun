@@ -31,6 +31,7 @@ namespace AppAdvisory.MathFrenzy
 		public void OnClickedOpenLeaderboard()
 		{
 			#if APPADVISORY_LEADERBOARD
+            LeaderboardManager.Init();
 			LeaderboardManager.ShowLeaderboardUI();
 			#else
 			Debug.LogWarning("OnClickedOpenLeaderboard : works only on mobile (iOS & Android), with Very Simple Leaderboard : http://u3d.as/qxf");

@@ -385,10 +385,10 @@ namespace AppAdvisory.MathFrenzy {
                 correctAnswer = result;
             }
 
-            questionNumber1.transform.parent.FindChild("Selected").gameObject.SetActive(TYPE_QUESTION == 0);
-            questionOperator.transform.parent.FindChild("Selected").gameObject.SetActive(TYPE_QUESTION == 1);
-            questionNumber2.transform.parent.FindChild("Selected").gameObject.SetActive(TYPE_QUESTION == 2);
-            questionResult.transform.parent.FindChild("Selected").gameObject.SetActive(TYPE_QUESTION == 3);
+            questionNumber1.transform.parent.Find("Selected").gameObject.SetActive(TYPE_QUESTION == 0);
+            questionOperator.transform.parent.Find("Selected").gameObject.SetActive(TYPE_QUESTION == 1);
+            questionNumber2.transform.parent.Find("Selected").gameObject.SetActive(TYPE_QUESTION == 2);
+            questionResult.transform.parent.Find("Selected").gameObject.SetActive(TYPE_QUESTION == 3);
 
             // generate 4 answer
             if (TYPE_QUESTION != 1) {
@@ -589,7 +589,9 @@ namespace AppAdvisory.MathFrenzy {
         /// </summary>
         void ReportScoreToLeaderboard(int p) {
 #if APPADVISORY_LEADERBOARD
-			LeaderboardManager.ReportScore(p);
+            if (LeaderboardManager.IsInitialized()) {
+			    LeaderboardManager.ReportScore(p);
+            }
 #else
             //print("Get very simple leaderboard to use it : http://u3d.as/qxf");
 #endif

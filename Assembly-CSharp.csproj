@@ -19,7 +19,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_5_1;UNITY_5_5;UNITY_5;UNITY_ANALYTICS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;UNITY_ANDROID;ENABLE_SUBSTANCE;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_VIDEO;ENABLE_VR;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_32;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;APPADVISORY_LEADERBOARD;VSLEADERBOARD_ENABLE_ANDROID;AADOTWEEN</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_5_6_1;UNITY_5_6;UNITY_5;UNITY_ANALYTICS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;ENABLE_VIDEO;UNITY_ANDROID;ENABLE_SUBSTANCE;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_VR;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_32;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;APPADVISORY_LEADERBOARD;VSLEADERBOARD_ENABLE_ANDROID;AADOTWEEN;UNITY_HAS_GOOGLEVR</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -81,6 +81,10 @@
      <Compile Include="Assets\GooglePlayGames\BasicApi\SavedGame\ISavedGameMetadata.cs" />
      <Compile Include="Assets\GooglePlayGames\BasicApi\SavedGame\SavedGameMetadataUpdate.cs" />
      <Compile Include="Assets\GooglePlayGames\BasicApi\ScorePageToken.cs" />
+     <Compile Include="Assets\GooglePlayGames\BasicApi\Video\CaptureOverlayStateListener.cs" />
+     <Compile Include="Assets\GooglePlayGames\BasicApi\Video\VideoCapabilities.cs" />
+     <Compile Include="Assets\GooglePlayGames\BasicApi\Video\VideoCaptureState.cs" />
+     <Compile Include="Assets\GooglePlayGames\BasicApi\Video\iVideoClient.cs" />
      <Compile Include="Assets\GooglePlayGames\GameInfo.cs" />
      <Compile Include="Assets\GooglePlayGames\ISocialPlatform\PlayGamesAchievement.cs" />
      <Compile Include="Assets\GooglePlayGames\ISocialPlatform\PlayGamesLeaderboard.cs" />
@@ -118,6 +122,7 @@
      <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\AchievementManager.cs" />
      <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\AndroidPlatformConfiguration.cs" />
      <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\Builder.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\CaptureOverlayStateListenerHelper.cs" />
      <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\CommonErrorStatus.cs" />
      <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\EndpointDiscoveryListenerHelper.cs" />
      <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\Event.cs" />
@@ -162,6 +167,9 @@
      <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\TurnBasedMatchConfigBuilder.cs" />
      <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\TurnBasedMultiplayerManager.cs" />
      <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\Types.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\VideoCapabilities.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\VideoCaptureState.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\VideoManager.cs" />
      <Compile Include="Assets\GooglePlayGames\Platforms\Native\JavaUtils.cs" />
      <Compile Include="Assets\GooglePlayGames\Platforms\Native\NativeClient.cs" />
      <Compile Include="Assets\GooglePlayGames\Platforms\Native\NativeEventClient.cs" />
@@ -171,10 +179,12 @@
      <Compile Include="Assets\GooglePlayGames\Platforms\Native\NativeRealtimeMultiplayerClient.cs" />
      <Compile Include="Assets\GooglePlayGames\Platforms\Native\NativeSavedGameClient.cs" />
      <Compile Include="Assets\GooglePlayGames\Platforms\Native\NativeTurnBasedMultiplayerClient.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\NativeVideoClient.cs" />
      <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\AchievementManager.cs" />
      <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\AndroidPlatformConfiguration.cs" />
      <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\BaseReferenceHolder.cs" />
      <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\Callbacks.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\CaptureOverlayStateListenerHelper.cs" />
      <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\EventManager.cs" />
      <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\GameServices.cs" />
      <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\GameServicesBuilder.cs" />
@@ -205,6 +215,8 @@
      <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\NativeSnapshotMetadataChange.cs" />
      <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\NativeStartAdvertisingResult.cs" />
      <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\NativeTurnBasedMatch.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\NativeVideoCapabilities.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\NativeVideoCaptureState.cs" />
      <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\NearbyConnectionsManager.cs" />
      <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\NearbyConnectionsManagerBuilder.cs" />
      <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\PInvokeUtilities.cs" />
@@ -222,6 +234,7 @@
      <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\TurnBasedManager.cs" />
      <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\TurnBasedMatchConfig.cs" />
      <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\TurnBasedMatchConfigBuilder.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\VideoManager.cs" />
      <Compile Include="Assets\GooglePlayGames\Platforms\Native\UnsupportedSavedGamesClient.cs" />
      <Compile Include="Assets\GooglePlayGames\Platforms\NearbyConnectionClientFactory.cs" />
      <Compile Include="Assets\GooglePlayGames\Platforms\PlayGamesClientFactory.cs" />
@@ -262,11 +275,13 @@
      <None Include="Assets\Demigiant\DOTween\DOTween46.xml" />
      <None Include="Assets\GooglePlayGames\Editor\template-GameInfo.txt" />
      <None Include="Assets\GooglePlayGames\Editor\template-AndroidManifest.txt" />
+     <None Include="Assets\PlayServicesResolver\Editor\play-services-resolver.txt" />
+     <None Include="Assets\PlayServicesResolver\proguard-messaging-workaround.txt" />
      <None Include="Assets\MathGame\_ReadMe.txt" />
      <None Include="Assets\GooglePlayGames\Editor\template-Constants.txt" />
      <None Include="Assets\Demigiant\DOTween\DOTween50.xml" />
+     <None Include="Assets\PlayServicesResolver\proguard-unity.txt" />
      <None Include="Assets\Plugins\Android\MainLibProj\AndroidManifest.xml" />
-     <None Include="Assets\PlayServicesResolver\Editor\play-services-resolver.txt" />
      <None Include="Assets\Demigiant\DOTween\DOTween43.xml" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
@@ -274,8 +289,11 @@
  <Reference Include="UnityEngine.Networking">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
- <Reference Include="UnityEngine.PlaymodeTestsRunner">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/PlaymodeTestsRunner/UnityEngine.PlaymodeTestsRunner.dll</HintPath>
+ <Reference Include="UnityEngine.TestRunner">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
+ </Reference>
+ <Reference Include="nunit.framework">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/nunit.framework.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Analytics">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
