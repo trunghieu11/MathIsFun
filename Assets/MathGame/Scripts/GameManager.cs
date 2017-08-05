@@ -42,9 +42,8 @@ namespace AppAdvisory.MathFrenzy {
 
         static System.Random _random = new System.Random();
 
-        public AudioClip musicBackground;
         public AudioClip goodAnswerSound;
-        public AudioClip falsedAnswerSound;
+        public AudioClip wrongAnswerSound;
 
         public int timeTotalGame;
         public int timeMalus;
@@ -96,7 +95,7 @@ namespace AppAdvisory.MathFrenzy {
 
         //play fx when answer is wrong
         void PlaySoundFalse() {
-            GetComponent<AudioSource>().PlayOneShot(falsedAnswerSound);
+            GetComponent<AudioSource>().PlayOneShot(wrongAnswerSound);
         }
 
         //play fx when answer is good
@@ -120,12 +119,12 @@ namespace AppAdvisory.MathFrenzy {
         }
 
         void OnDisable() {
-            StopMusic();
+            //StopMusic();
         }
 
         //method to start the game
         private void StartGame() {
-            PlayMusic();
+            //PlayMusic();
 
             //reset the score
             _score = 0;
@@ -161,7 +160,7 @@ namespace AppAdvisory.MathFrenzy {
                 //Debug.Log("Timer: " + timer);
 
                 //if the slider == 0 ===> game over
-                if (slider.value == 0) {
+                if (slider.value <= 0) {
                     break;
                 }
 
