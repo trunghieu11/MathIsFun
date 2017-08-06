@@ -30,13 +30,9 @@ namespace ElevenGameStudio.MathFrenzy
 		/// </summary>
 		public void OnClickedOpenLeaderboard()
 		{
-			#if APPADVISORY_LEADERBOARD
             LeaderboardManager.Init();
+            Debug.Log("Clicked Show Leaderboard");
 			LeaderboardManager.ShowLeaderboardUI();
-			#else
-			Debug.LogWarning("OnClickedOpenLeaderboard : works only on mobile (iOS & Android), with Very Simple Leaderboard : http://u3d.as/qxf");
-			#endif
 		}
-
 	}
 }

@@ -162,3 +162,8 @@ cb2ede4727cb322459ada845fc3c9592 Assembly-CSharp.dll:ElevenGameStudio.MathFrenzy
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:ElevenGameStudio.MathFrenzy.ButtonCloseSetting
 59ffcf93d2bb5d513f9a30986d92f97e Assembly-CSharp.dll:ElevenGameStudio.MathFrenzy.RateUsManager
 135dc09e7865372ccba703481389dc0f Assembly-CSharp.dll:MenuBarouch.MenuManager
+1cb40c746a01332eb78618e045b0b5a9 Assembly-CSharp.dll:.Reporter
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.ReporterMessageReceiver
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.ReporterGUI
+922dde826533f20a40eadb188df86725 Assembly-CSharp.dll:.TestReporter
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Rotate

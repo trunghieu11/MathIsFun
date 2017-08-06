@@ -9,17 +9,12 @@ using GooglePlayGames.BasicApi;
 #endif
 
 namespace ElevenGameStudio.social {
-    //using AmazonCommon;
-    /// <summary>
-    /// Class in charge of the leaderboard.
-    /// </summary>
     public static class LeaderboardManager {
         public static bool LEADERBOARD_INIT_IS_INITIALIZED = false;
         //		#if UNITY_IOS
         //		#endif
         public static string LEADERBOARDID {
             get {
-                //				return Very_Simple_Leaderboard.GPGSIds.leaderboard_leaderboard;
                 return PlayerPrefs.GetString("__LEADERBOARDID");
             }
             set {
@@ -30,35 +25,18 @@ namespace ElevenGameStudio.social {
         }
         
         static ILeaderboard lb;
-
-        /// <summary>
-        /// Authenticate and register a ProcessAuthentication callback
-        /// This call needs to be made before we can proceed to other calls in the Social API
-        /// </summary>
+        
         public static void Init() {
-
-#if UNITY_IOS
-			try
-			{
-			Social.localUser.Authenticate (ProcessAuthentication);
-			}
-			catch(Exception e)
-			{
-			Debug.Log("------ Authenticate - EXCEPTION : " + e.ToString());
-			}
-#endif
-
-#if UNITY_ANDROID && APPADVISORY_LEADERBOARD && VSLEADERBOARD_ENABLE_ANDROID
             if (!IsInitialized()) {
                 // recommended for debugging:
                 PlayGamesPlatform.DebugLogEnabled = true;
                 // Activate the Google Play Games platform
                 PlayGamesPlatform.Activate();
 
+                LEADERBOARDID = "CgkIqf3f5fMHEAIQAA";
+
                 AuthAndroid();
             }
-
-#endif
         }
 
         public static void AuthAndroid() {
@@ -133,7 +111,9 @@ namespace ElevenGameStudio.social {
 #endif
 
 #if UNITY_ANDROID
-            Social.ShowLeaderboardUI();
+            if (IsInitialized()) {
+                Social.ShowLeaderboardUI();
+            }
             //			((PlayGamesPlatform)Social.Active).ShowLeaderboardUI (LEADERBOARDID); // Show current (Active) leaderboard
 #endif
         }
@@ -150,8 +130,6 @@ namespace ElevenGameStudio.social {
 
             if (IsInitialized()) {
                 Social.ShowAchievementsUI();
-            } else {
-                AuthAndroid();
             }
 
 #endif
@@ -223,8 +201,7 @@ namespace ElevenGameStudio.social {
             if (IsInitialized()) {
                 Social.Active.ReportScore(score, leaderboardID, (bool success) => {
                     if (success) {
-                        Debug.Log("Update Score Success");
-
+                        Debug.Log("Update Score Success with scores: " + score + " leaderboardID: " + leaderboardID);
                     } else {
                         Debug.Log("Update Score Fail");
                     }

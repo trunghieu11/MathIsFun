@@ -363,18 +363,11 @@ namespace ElevenGameStudio.MathFrenzy {
             }
 
         }
-
-        // <summary>
-        /// If using Very Simple Leaderboard by App Advisory, report the score : http://u3d.as/qxf
-        /// </summary>
+        
         void ReportScoreToLeaderboard(int p) {
-#if APPADVISORY_LEADERBOARD
             if (LeaderboardManager.IsInitialized()) {
 			    LeaderboardManager.ReportScore(p);
             }
-#else
-            //print("Get very simple leaderboard to use it : http://u3d.as/qxf");
-#endif
         }
 
         /// <summary>

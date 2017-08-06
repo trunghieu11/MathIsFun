@@ -172,6 +172,7 @@
     <Compile Include="Assets\MathGame\EditorPopup\Editor\Autorun.cs" />
     <Compile Include="Assets\MathGame\EditorPopup\Editor\DGChecker.cs" />
     <Compile Include="Assets\MathGame\EditorPopup\Editor\Welcome.cs" />
+    <Compile Include="Assets\Unity-Logs-Viewer\Reporter\Editor\ReporterEditor.cs" />
     <Compile Include="Assets\Very_Simple_Leaderboard\Editor\LDInspectorGUI.cs" />
     <Compile Include="Assets\Very_Simple_Leaderboard\Editor\LDUtility.cs" />
   </ItemGroup>
@@ -190,6 +191,7 @@
     <None Include="Assets\PlayServicesResolver\proguard-messaging-workaround.txt" />
     <None Include="Assets\PlayServicesResolver\proguard-unity.txt" />
     <None Include="Assets\Plugins\Android\MainLibProj\AndroidManifest.xml" />
+    <None Include="Assets\StreamingAssets\build_info.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
