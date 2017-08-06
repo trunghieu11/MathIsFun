@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace AppAdvisory.MathFrenzy {
+namespace ElevenGameStudio.MathFrenzy {
     public class ButtonExit : ButtonHelper {
         override public void OnClicked() {
             CloseGame();

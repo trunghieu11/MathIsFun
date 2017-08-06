@@ -32,7 +32,7 @@ using System;
 /// Execute some code exactly once, whenever the project is opened, recompiled, or run.
 ///
 
-namespace AppAdvisory.MathFrenzy
+namespace ElevenGameStudio.MathFrenzy
 {
 	[InitializeOnLoad]
 	public class Autorun

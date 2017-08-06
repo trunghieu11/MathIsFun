@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>Android:13</UnityBuildTarget>
     <UnityVersion>2017.1.0f3</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -299,13 +301,17 @@
     <Compile Include="Assets\MathGame\Scripts\ButtonScripts\PlayButton.cs" />
     <Compile Include="Assets\MathGame\Scripts\ButtonScripts\RateUsButton.cs" />
     <Compile Include="Assets\MathGame\Scripts\FixRotationOnEnable.cs" />
-    <Compile Include="Assets\MathGame\Scripts\GameManager.cs" />
+    <Compile Include="Assets\MathGame\Scripts\Managers\GameManager.cs" />
+    <Compile Include="Assets\MathGame\Scripts\Managers\MenuManager.cs" />
+    <Compile Include="Assets\MathGame\Scripts\Managers\QuestionManager.cs" />
+    <Compile Include="Assets\MathGame\Scripts\Managers\RateUsManager.cs" />
+    <Compile Include="Assets\MathGame\Scripts\Objects\QuestionType.cs" />
+    <Compile Include="Assets\MathGame\Scripts\ScoreManager.cs" />
     <Compile Include="Assets\MathGame\Scripts\MenuGameOver.cs" />
     <Compile Include="Assets\MathGame\Scripts\MenuLogic.cs" />
-    <Compile Include="Assets\MathGame\Scripts\MenuManager.cs" />
+    <Compile Include="Assets\MathGame\Scripts\Objects\Operator.cs" />
+    <Compile Include="Assets\MathGame\Scripts\Objects\Question.cs" />
     <Compile Include="Assets\MathGame\Scripts\PlayerPrefsX.cs" />
-    <Compile Include="Assets\MathGame\Scripts\RateUsManager.cs" />
-    <Compile Include="Assets\MathGame\Scripts\ScoreManager.cs" />
     <Compile Include="Assets\MathGame\Scripts\SliderFillArea.cs" />
     <Compile Include="Assets\MathGame\Scripts\Util.cs" />
     <Compile Include="Assets\Very_Simple_Leaderboard\Exemple\Scripts\OpenLeaderboard.cs" />
@@ -332,6 +338,7 @@
     <None Include="Assets\PlayServicesResolver\proguard-unity.txt" />
     <None Include="Assets\Plugins\Android\MainLibProj\AndroidManifest.xml" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
 </Project>

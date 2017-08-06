@@ -13,10 +13,10 @@
 using UnityEngine;
 using System.Collections;
 #if APPADVISORY_LEADERBOARD
-using AppAdvisory.social;
+using ElevenGameStudio.social;
 #endif
 
-namespace AppAdvisory.MathFrenzy
+namespace ElevenGameStudio.MathFrenzy
 {
 	public class ButtonLeaderboard : ButtonHelper 
 	{

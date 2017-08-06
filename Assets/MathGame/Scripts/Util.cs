@@ -15,7 +15,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace AppAdvisory.MathFrenzy
+namespace ElevenGameStudio.MathFrenzy
 {
 	public static class Util
 	{

@@ -14,7 +14,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
-namespace AppAdvisory.MathFrenzy {
+namespace ElevenGameStudio.MathFrenzy {
     public class MenuGameOver : MonoBehaviour {
         public Text level;
         public Text score;

@@ -13,7 +13,7 @@
 using UnityEngine;
 using System.Collections;
 
-namespace AppAdvisory.MathFrenzy {
+namespace ElevenGameStudio.MathFrenzy {
     public class ScoreManager {
         public static void SaveScore(int lastScore, int level) {
             PlayerPrefs.SetInt("LAST_SCORE", lastScore);

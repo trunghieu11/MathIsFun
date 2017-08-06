@@ -16,7 +16,7 @@ using System;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
-using AppAdvisory.MathFrenzy;
+using ElevenGameStudio.MathFrenzy;
 
 namespace MenuBarouch {
 

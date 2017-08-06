@@ -13,7 +13,7 @@
 using UnityEngine;
 using System.Collections;
 
-namespace AppAdvisory.MathFrenzy {
+namespace ElevenGameStudio.MathFrenzy {
     public class ButtonCloseSetting : ButtonHelper {
         override public void OnClicked() {
             print("OnClicked : " + gameObject.name);

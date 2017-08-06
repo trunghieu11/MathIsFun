@@ -14,7 +14,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
-namespace AppAdvisory.MathFrenzy {
+namespace ElevenGameStudio.MathFrenzy {
     public class MenuLogic : MonoBehaviour {
         public Transform Title;
 

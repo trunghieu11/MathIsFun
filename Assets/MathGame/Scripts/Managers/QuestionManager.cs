@@ -1,9 +1,6 @@
-﻿using UnityEngine;
-using UnityEditor;
-
-namespace AppAdvisory.MathFrenzy {
+﻿namespace ElevenGameStudio.MathFrenzy {
     public class QuestionManager {
-        private static Operator[] randomOperator = new Operator[] { Operator.plus, Operator.substract, Operator.multi, Operator.devide };
+        private static Operator[] randomOperator = new Operator[] { Operator.PLUS, Operator.SUBSTRACT, Operator.MULTI, Operator.DEVIDE };
 
         public static Question GenerateQuestion(int level) {
             Operator choseOperator = randomOperator[UnityEngine.Random.Range(0, 4)];
@@ -21,12 +18,12 @@ namespace AppAdvisory.MathFrenzy {
                 bool isOK = true;
 
                 // choose number
-                if (choseOperator == Operator.devide) {
+                if (choseOperator == Operator.DEVIDE) {
                     int mult = UnityEngine.Random.Range(2 + level, 2 + 2 * level);
                     number2 = UnityEngine.Random.Range(2 + level / 2, 3 + level);
 
                     number1 = mult * number2;
-                } else if (choseOperator == Operator.substract) {
+                } else if (choseOperator == Operator.SUBSTRACT) {
                     number2 = UnityEngine.Random.Range(1 + level / 2, 5 + level);
                     number1 = UnityEngine.Random.Range(number2 + level / 2, number2 + 5 + 2 * level);
                 } else {
@@ -38,7 +35,7 @@ namespace AppAdvisory.MathFrenzy {
                 result = GetResult(number1, number2, choseOperator);
 
                 // check if this game have only one result
-                if (choseOperator == Operator.substract || choseOperator == Operator.devide) {
+                if (choseOperator == Operator.SUBSTRACT || choseOperator == Operator.DEVIDE) {
                     int resultDIV = 0;
                     int resultMINUS = 0;
 
@@ -50,7 +47,7 @@ namespace AppAdvisory.MathFrenzy {
                     }
                 }
 
-                if (choseOperator == Operator.plus || choseOperator == Operator.multi) {
+                if (choseOperator == Operator.PLUS || choseOperator == Operator.MULTI) {
                     int resultMULT = 0;
                     int resultPLUS = 0;
 
@@ -67,7 +64,7 @@ namespace AppAdvisory.MathFrenzy {
                 }
 
                 // check operator devide is correct
-                if (choseOperator == Operator.devide) {
+                if (choseOperator == Operator.DEVIDE) {
                     if (number1 % number2 != 0) {
                         isOK = false;
                     }
@@ -80,7 +77,7 @@ namespace AppAdvisory.MathFrenzy {
                         isOK = false;
                     }
                 } else {
-                    if (choseOperator == Operator.devide) {
+                    if (choseOperator == Operator.DEVIDE) {
                         if (number1 == 0 || number1 == 1 || number2 == 0 || number2 == 1 || result == 0 || result == 1) {
                             isOK = false;
                         }
@@ -98,25 +95,25 @@ namespace AppAdvisory.MathFrenzy {
 
                 //Check again!!!
                 if (isOK) {
-                    if (choseOperator == Operator.plus) {
+                    if (choseOperator == Operator.PLUS) {
                         int resultTest = number1 + number2;
                         if (resultTest != result) {
                             isOK = false;
                         }
                     }
-                    if (choseOperator == Operator.substract) {
+                    if (choseOperator == Operator.SUBSTRACT) {
                         int resultTest = number1 - number2;
                         if (resultTest != result) {
                             isOK = false;
                         }
                     }
-                    if (choseOperator == Operator.multi) {
+                    if (choseOperator == Operator.MULTI) {
                         int resultTest = number1 * number2;
                         if (resultTest != result) {
                             isOK = false;
                         }
                     }
-                    if (choseOperator == Operator.devide) {
+                    if (choseOperator == Operator.DEVIDE) {
                         int resultTest = number1 / number2;
                         if (resultTest != result) {
                             isOK = false;
@@ -136,17 +133,32 @@ namespace AppAdvisory.MathFrenzy {
 
         private static int GetResult(int n1, int n2, Operator oper) {
             switch (oper) {
-                case Operator.plus:
+                case Operator.PLUS:
                     return n1 + n2;
-                case Operator.substract:
+                case Operator.SUBSTRACT:
                     return n1 - n2;
-                case Operator.multi:
+                case Operator.MULTI:
                     return n1 * n2;
-                case Operator.devide:
+                case Operator.DEVIDE:
                     return n1 / n2;
                 default:
                     return 0;
             }
+        }
+
+        public static QuestionType RandomQuestionType() {
+            int type = UnityEngine.Random.Range(0, 4);
+            switch (type) {
+                case 0:
+                    return QuestionType.MISS_NUM_1;
+                case 1:
+                    return QuestionType.MISS_NUM_2;
+                case 2:
+                    return QuestionType.MISS_OPERATOR;
+                case 3:
+                    return QuestionType.MISS_RESULT;
+            }
+            return QuestionType.MISS_NUM_1;
         }
     }
 }

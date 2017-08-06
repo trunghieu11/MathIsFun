@@ -14,7 +14,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
-namespace AppAdvisory.MathFrenzy
+namespace ElevenGameStudio.MathFrenzy
 {
 	public class AnswerInGameButton: ButtonHelper 
 	{

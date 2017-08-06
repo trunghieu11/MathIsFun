@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using UnityEditor;
-
-namespace AppAdvisory.MathFrenzy {
+﻿namespace ElevenGameStudio.MathFrenzy {
     public class Question {
         public int Number1 { get; set; }
         public int Number2 { get; set; }

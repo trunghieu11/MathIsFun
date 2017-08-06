@@ -15,7 +15,7 @@ using UnityEngine.UI;
 using System.Collections;
 using MenuBarouch;
 
-namespace AppAdvisory.MathFrenzy
+namespace ElevenGameStudio.MathFrenzy
 {
 	public class ButtonShare : ButtonHelper 
 	{

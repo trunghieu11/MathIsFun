@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace AppAdvisory.MathFrenzy {
+namespace ElevenGameStudio.MathFrenzy {
     public enum Operator {
-        plus = 0,
-        substract = 1,
-        multi = 2,
-        devide = 3
+        PLUS = 0,
+        SUBSTRACT = 1,
+        MULTI = 2,
+        DEVIDE = 3
     }
 }
