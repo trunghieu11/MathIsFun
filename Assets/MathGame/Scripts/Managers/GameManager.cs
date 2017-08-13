@@ -147,9 +147,9 @@ namespace ElevenGameStudio.MathFrenzy {
             while (true) {
 
                 // Make game faster here
-                float timer = 0.01f + ((float)Mathf.Sqrt(level)) / 100f;
-
-                timer = Math.Min(0.1f, timer * 3);
+                //float timer = 0.01f + ((float)Mathf.Sqrt(level)) / 100f;
+                //timer = Math.Min(0.1f, timer * 3);
+                float timer = 0.07f;
 
                 slider.value -= timer;
 
