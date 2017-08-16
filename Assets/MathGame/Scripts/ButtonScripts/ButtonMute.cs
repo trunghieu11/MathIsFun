@@ -9,7 +9,7 @@ namespace ElevenGameStudio.MathFrenzy {
         public GameObject audioOffItem;
 
         void OnEnable() {
-            if (!PlayerPrefsX.GetBool(Util.MUTED_PREF)) {
+            if (!PlayerPrefsX.GetBool(Utils.MUTED_PREF)) {
                 audioOnItem.SetActive(true);
                 audioOffItem.SetActive(false);
             } else {
@@ -22,10 +22,10 @@ namespace ElevenGameStudio.MathFrenzy {
         /// Toggle button mute
         /// </summary>
         override public void OnClicked() {
-            if (PlayerPrefsX.GetBool(Util.MUTED_PREF)) {
-                PlayerPrefsX.SetBool(Util.MUTED_PREF, false);
+            if (PlayerPrefsX.GetBool(Utils.MUTED_PREF)) {
+                PlayerPrefsX.SetBool(Utils.MUTED_PREF, false);
             } else {
-                PlayerPrefsX.SetBool(Util.MUTED_PREF, true);
+                PlayerPrefsX.SetBool(Utils.MUTED_PREF, true);
             }
 
             SetSoundState();
@@ -35,7 +35,7 @@ namespace ElevenGameStudio.MathFrenzy {
         /// Set sound state
         /// </summary>
         public void SetSoundState() {
-            if (!PlayerPrefsX.GetBool(Util.MUTED_PREF)) {
+            if (!PlayerPrefsX.GetBool(Utils.MUTED_PREF)) {
                 AudioListener.volume = 1;
                 audioOnItem.SetActive(true);
                 audioOffItem.SetActive(false);

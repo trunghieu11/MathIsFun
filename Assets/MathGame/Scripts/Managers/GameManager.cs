@@ -28,12 +28,7 @@ namespace ElevenGameStudio.MathFrenzy {
     public class GameManager : MonoBehaviour {
         public int numberOfPlayToShowInterstitial = 5;
 
-        public string VerySimpleAdsURL = "http://u3d.as/oWD";
-
         static System.Random _random = new System.Random();
-
-        public AudioClip goodAnswerSound;
-        public AudioClip wrongAnswerSound;
 
         public int timeTotalGame;
         public int timeMalus;
@@ -74,29 +69,31 @@ namespace ElevenGameStudio.MathFrenzy {
 
         private Vector2 pivotPoint;
 
+        public AudioClip goodAnswerSound;
+        public AudioClip wrongAnswerSound;
+    
         private Question lastQuestion = new Question(-1, -1, 1, Operator.MULTI);
 
         public delegate void _GameOver();
         public static event _GameOver OnGameOver;
 
-
         //play fx when answer is wrong
-        void PlaySoundFalse() {
+        public void PlaySoundFalse() {
             GetComponent<AudioSource>().PlayOneShot(wrongAnswerSound);
         }
 
         //play fx when answer is good
-        void PlaySoundGood() {
+        public void PlaySoundGood() {
             GetComponent<AudioSource>().PlayOneShot(goodAnswerSound);
         }
 
         //play the music
-        void PlayMusic() {
+        public void PlayMusic() {
             GetComponent<AudioSource>().Play();
         }
 
         //stop the music
-        void StopMusic() {
+        public void StopMusic() {
             GetComponent<AudioSource>().Stop();
         }
 
@@ -113,11 +110,11 @@ namespace ElevenGameStudio.MathFrenzy {
         private void StartGame() {
             //PlayMusic();
 
-            //reset the score
-            score = 0;
-
             //reset the level
-            level = 1;
+            level = ScoreManager.GetLastLevel();
+
+            //reset the score
+            score = level * Utils.SCORES_EACH_LEVEL;
 
             point.text = score.ToString();
 
@@ -149,7 +146,7 @@ namespace ElevenGameStudio.MathFrenzy {
                 // Make game faster here
                 //float timer = 0.01f + ((float)Mathf.Sqrt(level)) / 100f;
                 //timer = Math.Min(0.1f, timer * 3);
-                float timer = 0.07f;
+                float timer = 0.07f - (float)Math.Sqrt(level) / 200f;
 
                 slider.value -= timer;
 
@@ -217,45 +214,12 @@ namespace ElevenGameStudio.MathFrenzy {
 
             // generate 4 answer
             if (questionType != QuestionType.MISS_OPERATOR) {
-                int[] answers = new int[4];
-
-                List<int> listAnswers = new List<int>();
-
-                listAnswers.Add(correctAnswer);
-
-                while (true) {
-                    int ans = 0;
-
-                    while (true) {
-                        bool isOk = true;
-
-                        ans = UnityEngine.Random.Range(1, correctAnswer * 2 + 3);
-
-                        if (ans <= 0) {
-                            isOk = false;
-                        }
-
-                        if (isOk) {
-                            break;
-                        }
-                    }
-
-                    if (!listAnswers.Contains(ans)) {
-                        listAnswers.Add(ans);
-                    }
-
-                    if (listAnswers.Count >= 4) {
-                        break;
-                    }
-                }
-
-                answers = listAnswers.ToArray();
-
-                Array.Sort(answers);
+                string[] answers = new string[4];
+                answers = QuestionManager.GenerateFakeAnswer(correctAnswer).ToArray();
 
                 for (int i = 0; i < 4; i++) {
                     reponses[i].fontSize = 90;
-                    reponses[i].text = answers[i].ToString();
+                    reponses[i].text = answers[i];
                 }
             } else {
                 reponses[0].text = "+";
@@ -287,7 +251,7 @@ namespace ElevenGameStudio.MathFrenzy {
             if (correctAnswer == myAnswer) {
                 score++;
 
-                if (score % 5 == 0) {
+                if (score % Utils.SCORES_EACH_LEVEL == 0) {
                     level++;
                     levelText.text = "Level " + level.ToString();
                 }
@@ -408,10 +372,6 @@ namespace ElevenGameStudio.MathFrenzy {
 		PlayerPrefs.Save();
 #else
             if (count >= numberOfPlayToShowInterstitial) {
-                Debug.LogWarning("To show ads, please have a look to Very Simple Ad on the Asset Store, or go to this link: " + VerySimpleAdsURL);
-                Debug.LogWarning("Very Simple Ad is already implemented in this asset");
-                Debug.LogWarning("Just import the package and you are ready to use it and monetize your game!");
-                Debug.LogWarning("Very Simple Ad : " + VerySimpleAdsURL);
                 PlayerPrefs.SetInt("GAMEOVER_COUNT", 0);
             } else {
                 PlayerPrefs.SetInt("GAMEOVER_COUNT", count);

@@ -17,7 +17,7 @@ using System.Collections.Generic;
 
 namespace ElevenGameStudio.MathFrenzy
 {
-	public static class Util
+	public static class Utils
 	{
         public static string FIRST_PLAY_PREF = "_FirstPlay";
         public static string TOTAL_DIAMOND_PREF = "_TotalDiamond";
@@ -29,6 +29,7 @@ namespace ElevenGameStudio.MathFrenzy
         public static string MUTED_PREF = "Muted";
         public static string LEADERBOARD_ID_PREF = "__LEADERBOARDID";
         public static string LAST_GET_DIAMOND_PREF = "_LastGetDiamond";
+        public static int SCORES_EACH_LEVEL = 5;
 
         private static System.Random Random = new System.Random();
 

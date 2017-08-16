@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>Android:13</UnityBuildTarget>
     <UnityVersion>2017.1.0f3</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -309,7 +311,7 @@
     <Compile Include="Assets\MathGame\Scripts\Objects\Question.cs" />
     <Compile Include="Assets\MathGame\Scripts\Objects\QuestionType.cs" />
     <Compile Include="Assets\MathGame\Scripts\PlayerPrefsX.cs" />
-    <Compile Include="Assets\MathGame\Scripts\ScoreManager.cs" />
+    <Compile Include="Assets\MathGame\Scripts\Managers\ScoreManager.cs" />
     <Compile Include="Assets\MathGame\Scripts\SliderFillArea.cs" />
     <Compile Include="Assets\MathGame\Scripts\Util.cs" />
     <Compile Include="Assets\Unity-Logs-Viewer\Reporter\MultiKeyDictionary.cs" />

@@ -31,8 +31,7 @@ namespace ElevenGameStudio.MathFrenzy {
             if (lastScore > best) {
                 PlayerPrefs.SetInt("BEST_SCORE", lastScore);
             }
-
-
+            
             PlayerPrefs.Save();
         }
 

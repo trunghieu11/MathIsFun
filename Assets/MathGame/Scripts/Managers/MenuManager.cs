@@ -42,7 +42,7 @@ namespace MenuBarouch {
         /// Set sound state
         /// </summary>
         public void SetSoundState() {
-            if (!PlayerPrefsX.GetBool(Util.MUTED_PREF)) {
+            if (!PlayerPrefsX.GetBool(Utils.MUTED_PREF)) {
                 AudioListener.volume = 1;
             } else {
                 AudioListener.volume = 0;
