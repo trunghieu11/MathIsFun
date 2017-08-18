@@ -110,11 +110,11 @@ namespace ElevenGameStudio.MathFrenzy {
         private void StartGame() {
             //PlayMusic();
 
-            //reset the level
-            level = ScoreManager.GetLastLevel();
-
             //reset the score
-            score = level * Utils.SCORES_EACH_LEVEL;
+            score = Math.Max(1, ScoreManager.GetLastLevel() - 5);
+
+            //reset the level
+            level = score / Utils.SCORES_EACH_LEVEL + 1;
 
             point.text = score.ToString();
 
@@ -146,7 +146,7 @@ namespace ElevenGameStudio.MathFrenzy {
                 // Make game faster here
                 //float timer = 0.01f + ((float)Mathf.Sqrt(level)) / 100f;
                 //timer = Math.Min(0.1f, timer * 3);
-                float timer = 0.07f - (float)Math.Sqrt(level) / 200f;
+                float timer = 0.08f - (float)Math.Sqrt(level) / 200f;
 
                 slider.value -= timer;
 
@@ -218,14 +218,14 @@ namespace ElevenGameStudio.MathFrenzy {
                 answers = QuestionManager.GenerateFakeAnswer(correctAnswer).ToArray();
 
                 for (int i = 0; i < 4; i++) {
-                    reponses[i].fontSize = 90;
+                    reponses[i].fontSize = 100;
                     reponses[i].text = answers[i];
                 }
             } else {
                 reponses[0].text = "+";
                 reponses[0].fontSize = 130;
                 reponses[1].text = "-";
-                reponses[1].fontSize = 130;
+                reponses[1].fontSize = 150;
                 reponses[2].text = "x";
                 reponses[3].text = "÷";
             }

@@ -18,7 +18,6 @@ namespace ElevenGameStudio.MathFrenzy {
     public class MenuLogic : MonoBehaviour {
         public Transform Title;
 
-        public Text level;
         public Text score;
         public Text bestScore;
 
@@ -29,7 +28,6 @@ namespace ElevenGameStudio.MathFrenzy {
                 t.localScale = Vector3.one;
             }
 
-            level.text = ScoreManager.GetLastLevel().ToString();
             score.text = ScoreManager.GetLastScore().ToString();
             bestScore.text = ScoreManager.GetBestScore().ToString();
 

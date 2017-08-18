@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 8c8789635e506c7498e4ca2d42d6c96f
+timeCreated: 1503060381
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Origami Mommy
+  fontNames:
+  - Origami Mommy
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
