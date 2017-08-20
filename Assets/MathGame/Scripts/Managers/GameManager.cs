@@ -111,7 +111,7 @@ namespace ElevenGameStudio.MathFrenzy {
             //PlayMusic();
 
             //reset the score
-            score = Math.Max(1, ScoreManager.GetLastLevel() - 5);
+            score = Math.Max(1, ScoreManager.GetLastScore() - 5);
 
             //reset the level
             level = score / Utils.SCORES_EACH_LEVEL + 1;
@@ -146,7 +146,9 @@ namespace ElevenGameStudio.MathFrenzy {
                 // Make game faster here
                 //float timer = 0.01f + ((float)Mathf.Sqrt(level)) / 100f;
                 //timer = Math.Min(0.1f, timer * 3);
+
                 float timer = 0.08f - (float)Math.Sqrt(level) / 200f;
+                //float timer = 0.008f;
 
                 slider.value -= timer;
 
