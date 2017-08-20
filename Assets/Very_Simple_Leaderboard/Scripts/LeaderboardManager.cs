@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using UnityEngine.SocialPlatforms;
+using ElevenGameStudio.MathFrenzy;
 
 #if UNITY_ANDROID && APPADVISORY_LEADERBOARD && VSLEADERBOARD_ENABLE_ANDROID
 using GooglePlayGames;
@@ -112,6 +113,13 @@ namespace ElevenGameStudio.social {
 
 #if UNITY_ANDROID
             if (IsInitialized()) {
+                if (!ScoreManager.IsUpdatedBestScoreToLeaderBoard()) {
+                    ReportScore(ScoreManager.GetBestScore());
+                    ScoreManager.UpdateBestScoreToLeaderBoard();
+                } else if (!ScoreManager.IsUpdatedLastScoreToLeaderBoard()) {
+                    ReportScore(ScoreManager.GetLastScore());
+                    ScoreManager.UpdateLastScoreToLeaderBoard();
+                }
                 Social.ShowLeaderboardUI();
             }
             //			((PlayGamesPlatform)Social.Active).ShowLeaderboardUI (LEADERBOARDID); // Show current (Active) leaderboard
@@ -220,6 +228,7 @@ namespace ElevenGameStudio.social {
         /// </summary>
         public static void ReportScore(int score) {
             ReportScore(LEADERBOARDID, score, false);
+            ScoreManager.UpdateLastScoreToLeaderBoard();
         }
     }
 }
